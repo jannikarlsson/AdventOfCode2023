@@ -19,9 +19,9 @@ def get_indices_to_expand():
 def create_expanded_grid(data, step):
     cols_to_be_expanded, rows_to_be_expanded = get_indices_to_expand()
     grid = {}
-    x_extras = step
+    x_extras = 0
     for x, row in enumerate(data):
-        y_extras = step
+        y_extras = 0
         for y, item in enumerate(row):
             grid[(x + x_extras, y + y_extras)] = item
             if y in cols_to_be_expanded:
@@ -61,7 +61,7 @@ def result_part_one():
 
 
 def result_part_two():
-    grid = create_expanded_grid(data, 1000000)
+    grid = create_expanded_grid(data, 999999)
     distances = get_distances(grid)
     return sum(distances)
 
